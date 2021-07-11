@@ -1,0 +1,24 @@
+import app from './app';
+import logger from './appLogger';
+import { config } from './appConfig';
+import waitApp from './utils/waitApp';
+import seedAdminUser from './utils/seedAdminUser';
+import db from './appDatabase';
+
+
+const { port } = config;
+
+async function main() {
+
+    await waitApp();
+    await seedAdminUser();
+    app.listen(port, () => {
+        logger.info(`Server listening on port ${port} on mode ${config.mode}...`);
+    });
+}
+
+main()
+    .catch((error) => {
+        logger.error(error);
+        throw error;
+});

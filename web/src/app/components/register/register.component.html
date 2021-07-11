@@ -1,0 +1,26 @@
+<mat-card class="element-center text-center width-md">
+    <div class="logo-container margin-bottom-ld">
+        <img mat-card-avatar src="../../../assets/images/logo.png">
+    </div>
+    <mat-card-title>
+        <h1>Sign up HearYourHome</h1>
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="registerForm" (ngSubmit)="register()" class="flex">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>
+            <mat-card-actions>
+                <button type="submit" mat-raised-button color="primary" [disabled]="!registerForm.valid" class="margin-top-md">Register!</button>
+            </mat-card-actions>
+        </form>
+        <mat-card-actions>
+            <button mat-raised-button class="margin-top-md" (click)="goToLogin()">Sign in</button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>

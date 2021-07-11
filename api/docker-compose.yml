@@ -1,0 +1,46 @@
+version: '3'
+
+services: 
+
+    app:
+        build: .
+        environment:
+            - PORT
+            - SESSION_SECRET
+            - MODE=dev
+            - DEFAULT_ADMIN_EMAIL
+            - DEFAULT_ADMIN_PASSWORD
+            - DATABASE_URL=postgresql://$DATABASE_USER:$DATABASE_PASSWORD@db:$DATABASE_PORT/$DATABASE_NAME
+            - REDIS_PORT
+            - REDIS_HOST=redis
+            - REDIS_PASS
+        ports:
+            - "${PORT}:${PORT}"
+        networks:
+            - backend
+        volumes:
+            - ./logs:/app/logs
+
+    redis:
+        image: bitnami/redis:latest
+        environment:
+            - REDIS_PASSWORD=${REDIS_PASS}
+        networks:
+            - backend
+
+    db:
+        image: postgres:alpine
+        environment: 
+            - POSTGRES_USER=${DATABASE_USER}
+            - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+            - POSTGRES_DB=${DATABASE_NAME}
+        networks:
+            - backend
+        volumes:
+            - db-data:/var/lib/postgresql/data
+
+networks:
+    backend:
+
+volumes:
+    db-data:

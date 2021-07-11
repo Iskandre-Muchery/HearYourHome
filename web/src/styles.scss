@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #eee;}
+
+.text-center {
+    text-align: center;
+}
+
+.element-center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.vertical-center {
+    position: relative;
+    top: 35%;
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.width-sm {
+    width: 10%;
+}
+
+.width-md {
+    width: 20%;
+}
+
+.width-ld {
+    width: 30%;
+}
+
+.margin-top-sm {
+    margin-top: 8px;
+}
+
+.margin-top-md {
+    margin-top: 16px;
+}
+
+.margin-top-ld {
+    margin-top: 32px;
+}
+
+.margin-bottom-sm {
+    margin-bottom: 8px;
+}
+
+.margin-bottom-md {
+    margin-bottom: 16px;
+}
+
+.margin-bottom-ld {
+    margin-bottom: 32px;
+}
