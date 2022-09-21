@@ -1,15 +1,23 @@
 import 'package:app/backEndSetupScreen.dart';
 import 'package:app/changePasswordScreen.dart';
+import 'package:app/firebaseConnect.dart';
 import 'package:app/globals.dart' as globals;
 import 'package:app/notificationsScreen.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:app/loginScreen.dart';
 
+
+
 void main() {
+  
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  
+  static final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+
   void setEnvironmentVars() {
     globals.appMode = String.fromEnvironment('APP_MODE', defaultValue: 'PROD');
     globals.apiIpAddr =
@@ -17,9 +25,15 @@ class MyApp extends StatelessWidget {
     globals.apiPort = String.fromEnvironment('API_PORT', defaultValue: '8000');
   }
 
+  void initializePushNotifications() {
+    final pushNotificationService = NotificationPush(_firebaseMessaging);
+    pushNotificationService.initialise();
+  }
+
   @override
   Widget build(BuildContext context) {
     setEnvironmentVars();
+    initializePushNotifications();
     return MaterialApp(
       debugShowCheckedModeBanner: (globals.appMode != "PROD") ? true : false,
       title: 'HearYourHome',
@@ -34,4 +48,5 @@ class MyApp extends StatelessWidget {
       },
     );
   }
+  
 }

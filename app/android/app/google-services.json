@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "283238161604",
+    "project_id": "hearyourhome-92092",
+    "storage_bucket": "hearyourhome-92092.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283238161604:android:26806f72498683a0f5fd91",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283238161604-8rhq06e6gbq562js7tto4sb7f9hij581.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6N4EkShCqHUT8vjR1jLInv4ghCapOM6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283238161604-8rhq06e6gbq562js7tto4sb7f9hij581.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

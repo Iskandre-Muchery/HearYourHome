@@ -2,6 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:app/models.dart';
 
+
 class HttpRequests {
   String _ip = "";
   String _port = "";
@@ -74,6 +75,7 @@ class HttpRequests {
   }
 
   Future<UserResponse> signIn(String email, String password) async {
+    
     if (this._ip == "" || this._port == "")
       throw Exception('Server IP or Port is empty');
     if (!verifyEmail(email)) throw Exception('Invalid email');
@@ -104,6 +106,7 @@ class HttpRequests {
 
   Future<UserResponse> signUp(
       String email, String username, String password) async {
+
     if (this._ip == "" || this._port == "")
       throw Exception('Server IP or Port is empty');
     if (!verifyEmail(email)) throw Exception('Invalid email');
